@@ -5,9 +5,9 @@ pipeline {
     environment { 
         COURSE = 'jenkins'
     }
-    //Build, Test, Deploy
+    // Build
     stages {
-        stage ('Build') {
+        stage('Build') {
             steps {
                 script{
                     sh """
@@ -17,14 +17,14 @@ pipeline {
                 }
             }
         }
-        stage ('Test') {
+        stage('Test') {
             steps {
                 script{
                     echo 'Testing..'
                 }
             }
         }
-        stage ('Deploy') {
+        stage('Deploy') {
             steps {
                 script{
                     echo 'Deploying..'
@@ -32,7 +32,8 @@ pipeline {
             }
         }
     }
-     post { 
+
+    post { 
         always { 
             echo 'I will always say Hello again!'
             deleteDir()
